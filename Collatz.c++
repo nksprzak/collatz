@@ -34,7 +34,7 @@ pair<int, int> collatz_read (const string& s) {
 // ------------
 
 int collatz_eval (int i, int j) {
-    int high;
+    int high = 0;
     for(int x = i; x <= j; x++)
     {
         int buf = x;
