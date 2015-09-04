@@ -42,7 +42,11 @@ int collatz_eval (int i, int j) {
         while(buf!=1)
         {
             if(buf%2 == 0) buf /= 2;
-            else buf = 3*buf +1;
+            else
+            {
+                buf = buf + (buf << 1) +1;
+                count +=2;
+            }
             count++;
         }
         if(count > high) high = count;
