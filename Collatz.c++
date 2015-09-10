@@ -53,9 +53,9 @@ int collatz_eval (int i, int j) {
         while(buf!=1)
         {
             #ifdef CACHE
-                if(buf < 10000 && lazy[(unsigned)buf] != 0)
+                if(buf < 10000 && lazy[buf] != 0)
                 {
-                    count += lazy[(unsigned)buf];
+                    count += lazy[buf];
                     buf = 1;
                 }
             #endif
@@ -71,7 +71,7 @@ int collatz_eval (int i, int j) {
             }
         }
         #ifdef CACHE
-            if(buf <= 10000 && i < 10000) lazy[(unsigned)buf] = count;
+            if(buf <= 10000 && i < 10000) lazy[buf] = count;
         #endif
         if(count > high) high = count;
     }
