@@ -18,6 +18,7 @@
 
 using namespace std;
 
+int lazy[10000] = {0};
 // ------------
 // collatz_read
 // ------------
@@ -45,12 +46,19 @@ int collatz_eval (int i, int j) {
     if( i < j/2 +1) begin = j/2 + 1;
     else begin = i;
     assert(i > 0 && j > 0);
-    for(int x = beg; x <= j; x++)
+    for(int x = begin; x <= j; x++)
     {
         int buf = x;
         int count = 1;
         while(buf!=1)
         {
+            #ifdef CACHE
+            if(buf < 10000 && lazy[(unsigned)buf] != 0)
+            {
+                count += lazy[(unsigned)buf];
+                buf = 1;
+            }
+            #endif
             if(buf%2 == 0)
             {
                 buf /= 2;
@@ -62,6 +70,9 @@ int collatz_eval (int i, int j) {
                 count +=2;
             }
         }
+        #ifdef CACHE
+        if(buf <= 10000 && i < 10000) lazy[(unsigned)buf] = count;
+        #endif
         if(count > high) high = count;
     }
     assert(high > 0);
