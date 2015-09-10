@@ -1,0 +1,101 @@
+commit cf05e91c248c89ff2e9e393547b99966fc6437fc
+Author: nksprzak <nksprzak@gmail.com>
+Date:   Thu Sep 10 17:45:44 2015 -0500
+
+    Added unit tests and acceptance tests
+
+commit 545c8948ddbd2fe452b66e3d9024995f7a870149
+Merge: f35ceb6 fd8a9cc
+Author: nksprzak <nksprzak@gmail.com>
+Date:   Thu Sep 10 17:39:24 2015 -0500
+
+    Merge branch 'dev'
+
+commit fd8a9cc6e50799bafdc671f807b7d83e387aabe9
+Author: nksprzak <nksprzak@gmail.com>
+Date:   Thu Sep 10 17:36:36 2015 -0500
+
+    cleaning up code and trying to get a travis build
+
+commit 8d78dcd25d580f48042fb3fcdb898e369116eca3
+Author: nksprzak <nksprzak@gmail.com>
+Date:   Thu Sep 10 17:16:47 2015 -0500
+
+    Removed collatz-tests
+
+commit 535e85c23e46f553bf68ea8d750f0980f5599d61
+Author: nksprzak <nksprzak@gmail.com>
+Date:   Thu Sep 10 17:14:05 2015 -0500
+
+    Adding working lazy cache
+
+commit f35ceb6af1eb9ab33f97ceb3a4d8dc7bffa1f673
+Merge: 67ed293 0cbb106
+Author: nksprzak <nksprzak@gmail.com>
+Date:   Tue Sep 8 19:02:41 2015 -0500
+
+    Merge branch 'dev'
+
+commit 0cbb1067d568720e51d27b044b2d668f1e56a817
+Author: nksprzak <nksprzak@gmail.com>
+Date:   Tue Sep 8 18:21:37 2015 -0500
+
+    Made SphereCollatz and made Sphere accepted and added some asserts
+
+commit 67ed293d1d8644a6a3b3ea809a3bf21b0445e908
+Author: nksprzak <nksprzak@gmail.com>
+Date:   Thu Sep 3 19:18:21 2015 -0500
+
+    Update evals odd to make 3n+1 into one step
+
+commit d9d195325a068fc7cdb23fd188b6ad900027d2a0
+Author: nksprzak <nksprzak@gmail.com>
+Date:   Thu Sep 3 19:10:28 2015 -0500
+
+    Trying to get a working Travis build
+
+commit a313c45ccb08dfbd1fa2a07b96299d3d7c107bbf
+Author: nksprzak <nksprzak@gmail.com>
+Date:   Tue Sep 1 21:28:01 2015 -0500
+
+    fixed runcollatz and eval
+    
+    tried to fix a bug from Travis b/c runcollatz was wrong
+
+commit 2221c1e8348de137a0fad9b39f6e523c2d003a04
+Author: nksprzak <nksprzak@gmail.com>
+Date:   Tue Sep 1 21:18:19 2015 -0500
+
+    collatz_eval function written
+    
+    Wrote the eval function with a while loop nested inside a for loop.
+
+commit e0126134fd3640fd2796193560f96ff9c8e2f7bc
+Author: nksprzak <nksprzak@gmail.com>
+Date:   Tue Sep 1 21:07:23 2015 -0500
+
+    Fixing unit tests
+    
+    Putting in the correct answers for GoogleTest
+
+commit 6b23130cb86e37591b1a74fba5ffb9281b6e6dfc
+Author: nksprzak <nksprzak@gmail.com>
+Date:   Tue Sep 1 17:04:01 2015 -0500
+
+    putting tests into the folder for Travis
+
+commit da5b6026c60d5f1e08ecb9789d81cf4bc86caf7b
+Author: nksprzak <nksprzak@gmail.com>
+Date:   Tue Sep 1 17:01:26 2015 -0500
+
+    Adding public repos
+    
+    Making the code work on Travis
+
+commit 0d4f897c4caaba2a8e22524cecbd504398809ef9
+Author: nksprzak <nksprzak@gmail.com>
+Date:   Tue Sep 1 16:49:18 2015 -0500
+
+    Initial commit
+    
+    First commit, no code added yet
