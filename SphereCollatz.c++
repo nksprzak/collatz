@@ -14,7 +14,9 @@
 #include <string>   // getline, string
 #include <utility>  // make_pair, pair
 
+#define CACHE
 
+int lazy[10000] = {0};
 
 using namespace std;
 
@@ -32,25 +34,31 @@ pair<int, int> collatz_read (const string& s) {
 // ------------
 // collatz_eval
 // ------------
-
 int collatz_eval (int i, int j) {
     int high = 0;
-    int beg = 0;
+    int begin = 0;
     if (i > j)
     {
-        int temp = j;
+        int change = j;
         j = i;
-        i = temp;
+        i = change;
     }
-    if( i < j/2 +1) beg = j/2 + 1;
-    else beg = i;
-    for(int x = beg; x <= j; x++)
+    if( i < j/2 +1) begin = j/2 + 1;
+    else begin = i;
+    assert(i > 0 && j > 0);
+    for(int x = begin; x <= j; x++)
     {
-
         int buf = x;
         int count = 1;
         while(buf!=1)
         {
+        #ifdef CACHE
+            if(buf < 10000 && lazy[buf] != 0)
+            {
+                count += lazy[buf];
+                break;
+            }
+        #endif
             if(buf%2 == 0)
             {
                 buf /= 2;
@@ -61,10 +69,13 @@ int collatz_eval (int i, int j) {
                 buf = (buf >> 1) + buf + 1;
                 count +=2;
             }
-            
         }
+    #ifdef CACHE
+        if(buf < 10000 && x < 10000) lazy[buf] = count;
+    #endif
         if(count > high) high = count;
     }
+    assert(high > 0);
     return high;}
 // -------------
 // collatz_print
