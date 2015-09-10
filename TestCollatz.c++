@@ -55,6 +55,18 @@ TEST(CollatzFixture, eval_4) {
     const int v = collatz_eval(900, 1000);
     ASSERT_EQ(174, v);}
 
+TEST(CollatzFixture, eval_5) {
+    const int v = collatz_eval(1, 1);
+    ASSERT_EQ(1, v);}
+
+TEST(CollatzFixture, eval_6) {
+    const int v = collatz_eval(10, 1);
+    ASSERT_EQ(20, v);}
+
+TEST(CollatzFixture, eval_7) {
+    const int v = collatz_eval(492, 1589);
+    ASSERT_EQ(182, v);}
+
 // -----
 // print
 // -----
@@ -100,49 +112,52 @@ gtest.h
 
 
 
-% g++ -fprofile-arcs -ftest-coverage -pedantic -std=c++11 -Wall Collatz.c++ TestCollatz.c++ -o TestCollatz -lgtest -lgtest_main -lpthread
+% g++-4.8 -pedantic -std=c++11 -Wall -fprofile-arcs -ftest-coverage Collatz.c++ TestCollatz.c++ -o TestCollatz -lgtest -lgtest_main -pthread
 
-
-
-% valgrind TestCollatz >  TestCollatz.out 2>&1
-==14225== Memcheck, a memory error detector
-==14225== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
-==14225== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
-==14225== Command: TestCollatz
-==14225==
+% valgrind ./TestCollatz
+==20589== Memcheck, a memory error detector
+==20589== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==20589== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==20589== Command: ./TestCollatz
+==20589==
 Running main() from gtest_main.cc
-[==========] Running 7 tests from 1 test case.
+[==========] Running 10 tests from 1 test case.
 [----------] Global test environment set-up.
-[----------] 7 tests from Collatz
-[ RUN      ] Collatz.read
-[       OK ] Collatz.read (31 ms)
-[ RUN      ] Collatz.eval_1
-[       OK ] Collatz.eval_1 (5 ms)
-[ RUN      ] Collatz.eval_2
-[       OK ] Collatz.eval_2 (3 ms)
-[ RUN      ] Collatz.eval_3
-[       OK ] Collatz.eval_3 (3 ms)
-[ RUN      ] Collatz.eval_4
-[       OK ] Collatz.eval_4 (3 ms)
-[ RUN      ] Collatz.print
-[       OK ] Collatz.print (17 ms)
-[ RUN      ] Collatz.solve
-[       OK ] Collatz.solve (10 ms)
-[----------] 7 tests from Collatz (88 ms total)
+[----------] 10 tests from CollatzFixture
+[ RUN      ] CollatzFixture.read
+[       OK ] CollatzFixture.read (16 ms)
+[ RUN      ] CollatzFixture.eval_1
+[       OK ] CollatzFixture.eval_1 (3 ms)
+[ RUN      ] CollatzFixture.eval_2
+[       OK ] CollatzFixture.eval_2 (2 ms)
+[ RUN      ] CollatzFixture.eval_3
+[       OK ] CollatzFixture.eval_3 (2 ms)
+[ RUN      ] CollatzFixture.eval_4
+[       OK ] CollatzFixture.eval_4 (2 ms)
+[ RUN      ] CollatzFixture.eval_5
+[       OK ] CollatzFixture.eval_5 (2 ms)
+[ RUN      ] CollatzFixture.eval_6
+[       OK ] CollatzFixture.eval_6 (2 ms)
+[ RUN      ] CollatzFixture.eval_7
+[       OK ] CollatzFixture.eval_7 (3 ms)
+[ RUN      ] CollatzFixture.print
+[       OK ] CollatzFixture.print (6 ms)
+[ RUN      ] CollatzFixture.solve
+[       OK ] CollatzFixture.solve (8 ms)
+[----------] 10 tests from CollatzFixture (55 ms total)
 
 [----------] Global test environment tear-down
-[==========] 7 tests from 1 test case ran. (132 ms total)
-[  PASSED  ] 7 tests.
-==14225==
-==14225== HEAP SUMMARY:
-==14225==     in use at exit: 0 bytes in 0 blocks
-==14225==   total heap usage: 495 allocs, 495 frees, 70,302 bytes allocated
-==14225==
-==14225== All heap blocks were freed -- no leaks are possible
-==14225==
-==14225== For counts of detected and suppressed errors, rerun with: -v
-==14225== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
-
+[==========] 10 tests from 1 test case ran. (82 ms total)
+[  PASSED  ] 10 tests.
+==20589==
+==20589== HEAP SUMMARY:
+==20589==     in use at exit: 0 bytes in 0 blocks
+==20589==   total heap usage: 373 allocs, 373 frees, 60,949 bytes allocated
+==20589==
+==20589== All heap blocks were freed -- no leaks are possible
+==20589==
+==20589== For counts of detected and suppressed errors, rerun with: -v
+==20589== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
 
 % gcov -b Collatz.c++     | grep -A 5 "File 'Collatz.c++'"     >> TestCollatz.out
